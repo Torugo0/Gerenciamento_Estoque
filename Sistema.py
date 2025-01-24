@@ -1,16 +1,35 @@
-import oracledb
-import json
+import tkinter as tk
+import Functions_Interface
 
-import functions
 
-'''
-#Funções
+def janela_principal(conexao):
+    root = tk.Tk()
+    root.title("Sistema de Gerenciamento de Produtos")
+    root.geometry("500x400")
 
-abrir_conexao = functions.abrir_conexao()
-encerrar_conexao = functions.encerrar_conexao(abrir_conexao)
-cadastro_produto = functions.cadastro_produto(abrir_conexao)
-listar_produtos = functions.listar_produtos(abrir_conexao)
-atualizar_produto = functions.atualizar_produto(abrir_conexao)
-deletar_produto = functions.deletar_produto(abrir_conexao)
-registrar_venda = functions.registrar_venda(abrir_conexao)
-'''
+    label_titulo = tk.Label(root, text="Bem-vindo ao Sistema de Gerenciamento", font=("Arial", 16))
+    label_titulo.pack(pady=20)
+    
+    botao_listar = tk.Button(root, text="Listar Produtos", font=("Arial", 12), width=20, command=lambda: Functions_Interface.listar_produtos_interface(conexao))
+    botao_listar.pack(pady=10)
+    
+    botao_listar = tk.Button(root, text="Cadastrar Produto", font=("Arial", 12), width=20, command=lambda: Functions_Interface.cadastro_produto_interface(conexao))
+    botao_listar.pack(pady=10)
+    
+    botao_listar = tk.Button(root, text="Atualizar Produto", font=("Arial", 12), width=20, command=lambda: Functions_Interface.atualizar_produto_interface(conexao))
+    botao_listar.pack(pady=10)
+    
+    botao_deletar = tk.Button(root, text="Deletar Produto", font=("Arial", 12), width=20, command=lambda: Functions_Interface.deletar_produto_interface(conexao))
+    botao_deletar.pack(pady=10)
+    
+    botao_deletar = tk.Button(root, text="Registrar Venda", font=("Arial", 12), width=20, command=lambda: Functions_Interface.registrar_venda_interface(conexao))
+    botao_deletar.pack(pady=10)
+    
+    botao_sair = tk.Button(root, text="Sair", font=("Arial", 12), width=20, command=root.destroy)
+    botao_sair.pack(pady=10)
+
+    root.mainloop()
+
+abrir_conexao = Functions_Interface.abrir_conexao()
+janela_principal(abrir_conexao)
+Functions_Interface.encerrar_conexao(abrir_conexao)
