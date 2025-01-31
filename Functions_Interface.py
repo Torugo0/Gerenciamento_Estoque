@@ -7,9 +7,9 @@ import json
 def abrir_conexao():
     try:
         conexao = oracledb.connect(
-            user="rm97758",
-            password="080305",
-            dsn="oracle.fiap.com.br:1521/ORCL"          
+            user="your_user",
+            password="your_password",
+            dsn="your_dsn"          
         )
         print("Conexão aberta com sucesso!")
         return conexao
