@@ -26,4 +26,7 @@ Antes de rodar o projeto, certifique-se de ter instalado:
 
 - **Python 3.10+**  
 - **Oracle Database** configurado e rodando.  
-- **Bibliotecas Python necessárias:**
+- **Bibliotecas Python necessárias:**  
+
+```sh
+pip install oracledb
